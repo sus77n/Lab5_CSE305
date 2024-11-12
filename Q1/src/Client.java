@@ -1,9 +1,15 @@
 public class Client {
-    public Contract requestCreateRentalContract(Contract builder, int contractID, int propertyID, int tenantID, float rentAmount){
-        builder.BuildContractID(contractID);
-        builder.BuildProperyID(propertyID);
-        builder.BuildTenantID(tenantID);
-        builder.BuildRentAmount(rentAmount);
-        return builder.SignContract();
+    public static void main(String[] args) throws Exception {
+        Contract contract1 = new LongTerm();
+        contract1.BuildContractID(1);
+        contract1.BuildProperyID(2);
+        contract1.BuildRentAmount(1111111);
+        contract1.BuildTenantID(1);
+        contract1.SignContract();
+
+        System.out.println(contract1.toString());
+
+        Document doc = new Document();
+        System.out.println(doc.newDocument(contract1.toString()));
     }
 }
